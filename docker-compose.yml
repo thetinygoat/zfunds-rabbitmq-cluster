@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3.7-management-alpine"
+    hostname: zfunds-rabbit
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=thetinygoat
+      - RABBITMQ_DEFAULT_PASS=zfrmqpass!
+    volumes:
+      - rmqdata:/var/lib/rabbitmq
+volumes:
+  rmqdata:
+    driver: local
